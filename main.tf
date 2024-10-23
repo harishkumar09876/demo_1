@@ -1,14 +1,10 @@
 provider "aws" {
-  region     = var.aws_region
-  access_key = var.AWS_ACCESS_KEY
-  secret_key = var.AWS_SECRET_KEY
+  region     = us-east-1
+  access_key = AKIATJHQD6OKL4DSXK46
+  secret_key = WnR5TT30YHKT+L5FfREqm46o4sbyHk38nC4UhO1M
 }
  
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Example AMI ID, use a valid one for your region
+  ami           = "ami-0866a3c8686eaeeba"
   instance_type = "t2.micro"
-  
-  tags = {
-    Name = "Jenkins-Terraform-Instance"
-  }
 }
