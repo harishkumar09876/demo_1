@@ -1,4 +1,4 @@
- def call() {
+def call() {
     post {
         success {
             mail to: 'harishkumarbsr006@gmail.com',
@@ -6,7 +6,7 @@
                 body: "Good news, the job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has succeeded."
         }
         failure {
-            mail to: 'your.harishkumarbsr006@gmail.com',
+            mail to: 'harishkumarbsr006@gmail.com',
                 subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                 body: "Unfortunately, the job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has failed."
         }
