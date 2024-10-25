@@ -1,4 +1,19 @@
  def call() {
-mail to: 'harishkumarbsr006@gmail.com',
-                 subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "The job ${env.JOB_NAME} #${env.BUILD_NUMBER} has failed. \n\nCheck details: ${env.BUILD_URL}"
+    post {
+        success {
+            mail to: 'harishkumarbsr006@gmail.com',
+                subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "Good news, the job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has succeeded."
+        }
+        failure {
+            mail to: 'your.harishkumarbsr006@gmail.com',
+                subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "Unfortunately, the job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has failed."
+        }
+        always {
+            cleanWs()
+        }
+    }
+}
+
+
