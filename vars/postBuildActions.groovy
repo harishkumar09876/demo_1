@@ -1,4 +1,4 @@
-def call(String alertTo) {
+def call(String alertTo,  String subject = '') {
     
     if (alertTo == 'email') {
         mail to:  "${env.EMAIL}",
