@@ -6,7 +6,7 @@ def call(String alertTo) {
              body: "The job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has ${currentBuild.currentResult.toLowerCase()}."
     } else if (alertTo == 'teams') {
         
-        sendTeamsAlert("Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has ${currentBuild.currentResult.toLowerCase()}.")
+        sendTeamsAlert("Job '${env.JOB_NAME} [${env.BUILD_NUMBER}] [${env.SUBJECT}]' has ${currentBuild.currentResult.toLowerCase()}.")
     }
     cleanWs()
 }
